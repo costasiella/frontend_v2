@@ -166,7 +166,7 @@ export default function ShopCheckoutPayment() {
       <SimpleGrid spacing="4" minChildWidth="300px" columns={3} py={6}>
         <Card>
           <CardHeader>
-            <Heading size="md">
+            <Heading as="h3" size="sm">
               {t("shop.checkout.payment.order_received")}
             </Heading>
           </CardHeader>
@@ -182,7 +182,7 @@ export default function ShopCheckoutPayment() {
         </Card>
         <Card>
           <CardHeader>
-            <Heading size="md">
+            <Heading as="h3" size="sm">
               {t("shop.checkout.order_summary")}
             </Heading>
           </CardHeader>

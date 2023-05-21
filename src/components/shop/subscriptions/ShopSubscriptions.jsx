@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react'
 import { useQuery } from "urql";
 import { useTranslation } from 'react-i18next';
@@ -32,7 +34,7 @@ export default function ShopSubscriptions() {
     return <CSSpinner />
   }
 
-  const subscriptions: any = data.organizationSubscriptions
+  const subscriptions = data.organizationSubscriptions
 
   return (
     <React.Fragment>
@@ -40,7 +42,7 @@ export default function ShopSubscriptions() {
         {t("shop.menu.subscriptions")}
       </Heading>
       <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>
-        {subscriptions.edges.map(({ node }: any) => (
+        {subscriptions.edges.map(({ node }) => (
           <ShopPricingCard
             key={node.id}
             title={node.name}

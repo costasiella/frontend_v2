@@ -176,6 +176,7 @@ export default function ShopCheckoutPayment() {
           <Card 
             maxW={{ base: '330px', md: '500px', lg: "1000px"}}
             w={'full'}
+            mt={6}
             ml="auto"
             mr="auto"
           >
@@ -199,6 +200,7 @@ export default function ShopCheckoutPayment() {
           <Card 
             maxW={{ base: '330px', md: '500px', lg: "1000px"}}
             w={'full'}
+            mt={6}
             ml="auto"
             mr="auto"
           >

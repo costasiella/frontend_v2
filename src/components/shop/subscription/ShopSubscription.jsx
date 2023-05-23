@@ -22,7 +22,7 @@ import { QUERY_ORGANIZATION_SUBSCRIPTION } from "./queries";
 import CSSpinner from "../../general/CSSpinner";
 import ShopPricingCard from "../../general/ShopPricingCard";
 import { FiCheck } from "react-icons/fi";
-import ShopInfoCard from '../../general/ShopInfoCard';
+import ShopCheckoutProgress from '../ShopCheckoutProgress';
 import CheckoutCardMollie from './CheckoutCardMollie';
 
 export default function ShopSubscription() {
@@ -81,6 +81,7 @@ export default function ShopSubscription() {
       <Heading as="h2" fontSize="24px" textAlign={{base: "center", md:  "left"}}>
         {t("shop.menu.subscription")}
       </Heading>
+      <ShopCheckoutProgress step={0} />
       <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>
         <ShopPricingCard
           // height="327px"

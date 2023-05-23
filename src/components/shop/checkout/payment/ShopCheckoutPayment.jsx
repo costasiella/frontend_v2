@@ -16,11 +16,14 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
+  Center,
   Heading,
   SimpleGrid,
   Text,
   useToast,
 } from "@chakra-ui/react"
+import { FiChevronRight } from "react-icons/fi"
+
 
 import GlobalContext from '../../../contexts/GlobalContext';
 
@@ -30,6 +33,9 @@ import { CREATE_PAYMENT_LINK } from "./queries"
 import CSButtonPrimary from "../../../general/CSButtonPrimary"
 import CSError from "../../../general/CSError.jsx"
 import CSSpinner from "../../../general/CSSpinner"
+
+import ShopCheckoutProgress from "../../ShopCheckoutProgress"
+
 
 export default function ShopCheckoutPayment() {
   /**
@@ -124,6 +130,7 @@ export default function ShopCheckoutPayment() {
     buttonNext = <CSButtonPrimary 
       href="/shop/account/profile"
       buttonText={t("shop.checkout.payment.update_profile")}
+      rightIcon={<FiChevronRight />}
     />
     // buttonNext = <Link to="/shop/account/profile">
     //   <Button
@@ -163,33 +170,44 @@ export default function ShopCheckoutPayment() {
       <Heading as="h2" fontSize="24px" textAlign={{base: "center", md:  "left"}}>
         {t("shop.checkout.payment")}
       </Heading>
-      <SimpleGrid spacing="4" minChildWidth="300px" columns={3} py={6}>
-        <Card>
-          <CardHeader>
-            <Heading as="h3" size="sm">
-              {t("shop.checkout.payment.order_received")}
-            </Heading>
-          </CardHeader>
-          <CardBody>
-            <Heading size="sm">
-              
-            </Heading>{t("shop.checkout.payment.order_received_subheader")}
-            <Text mb={"6px"}>
-              {t("shop.checkout.payment.order_received_to_payment_explanation")}
-              {msgNextStep}
-            </Text>
-          </CardBody>
-        </Card>
-        <Card>
-          <CardHeader>
-            <Heading as="h3" size="sm">
-              {t("shop.checkout.order_summary")}
-            </Heading>
-          </CardHeader>
-          <CardBody>
-            table here
-          </CardBody>
-        </Card>
+      <ShopCheckoutProgress step={1} />
+      <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>
+        {/* <Center py={6} alignItems={'start'}> */}
+          <Card 
+            maxW={{ base: '330px', md: '500px', lg: "1000px"}}
+            w={'full'}
+          >
+            <CardHeader>
+              <Heading as="h3" size="sm">
+                {t("shop.checkout.payment.order_received")}
+              </Heading>
+            </CardHeader>
+            <CardBody>
+              <Text mb={3}>
+                {t("shop.checkout.payment.order_received_to_payment_explanation")}
+              </Text>
+              <Text>
+                {msgNextStep}
+              </Text>
+              {buttonNext}
+            </CardBody>
+          </Card>
+        {/* </Center> */}
+        {/* <Center py={6} alignItems={'start'}> */}
+          <Card 
+            maxW={{ base: '330px', md: '500px', lg: "1000px"}}
+            w={'full'}
+          >
+            <CardHeader>
+              <Heading as="h3" size="sm">
+                {t("shop.checkout.order_summary")}
+              </Heading>
+            </CardHeader>
+            <CardBody>
+              table here
+            </CardBody>
+          </Card>
+        {/* </Center> */}
       </SimpleGrid>
     </React.Fragment>
   )

@@ -60,28 +60,29 @@ export default function ShopCheckoutProgress({step}) {
   const activeStepText = steps[activeStep].title
 
   return (
-    <Center py={6} alignItems={'start'}>
-      <Box
-        maxW={{ base: '330px', md: '500px', lg: "2000px"}}
-        w={'full'}
-      >
-        <Stack>
-          <Stepper size='sm' index={activeStep} gap='0' colorScheme='green'>
-            {steps.map((step, index) => (
-              <Step key={index}>
-                <StepIndicator>
-                  <StepStatus complete={<StepIcon />} />
-                </StepIndicator>
-                {/* <StepSeparator _horizontal={{ ml: '0' }} /> */}
-                <StepSeparator />
-              </Step>
-            ))}
-          </Stepper>
-          <Text>
-            {t("shop.checkout_progress.step")} {activeStep + 1}: <b>{activeStepText}</b>
-          </Text>
-        </Stack>
-      </Box>
-    </Center>
+    <Box
+      maxW={{ base: '330px', md: '500px', lg: "2000px"}}
+      mt={6}
+      ml="auto"
+      mr="auto"
+      w={'full'}
+    >
+      <Stack>
+        <Stepper size='sm' index={activeStep} gap='0' colorScheme='green'>
+          {steps.map((step, index) => (
+            <Step key={index}>
+              <StepIndicator>
+                <StepStatus complete={<StepIcon />} />
+              </StepIndicator>
+              {/* <StepSeparator _horizontal={{ ml: '0' }} /> */}
+              <StepSeparator />
+            </Step>
+          ))}
+        </Stepper>
+        <Text>
+          {t("shop.checkout_progress.step")} {activeStep + 1}: <b>{activeStepText}</b>
+        </Text>
+      </Stack>
+    </Box>
   )
 }

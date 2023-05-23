@@ -62,7 +62,7 @@ export default function ShopCheckoutProgress({step}) {
   return (
     <Center py={6} alignItems={'start'}>
       <Box
-        maxW={{ base: '330px', md: '500px', lg: "1000px"}}
+        maxW={{ base: '330px', md: '500px', lg: "2000px"}}
         w={'full'}
       >
         <Stack>

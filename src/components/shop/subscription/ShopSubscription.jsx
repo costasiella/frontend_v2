@@ -79,7 +79,7 @@ export default function ShopSubscription() {
   return (
     <React.Fragment>
       <Heading as="h2" fontSize="24px" textAlign={{base: "center", md:  "left"}}>
-        {t("shop.menu.subscription")}
+        {t("shop.checkout.title")} <Text as="small" size="xs" color="grey">{t("shop.menu.subscription")}</Text>
       </Heading>
       <ShopCheckoutProgress step={0} />
       <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>

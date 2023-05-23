@@ -95,22 +95,13 @@ export default function CheckoutCardMollie() {
         rounded={'md'}
         overflow={'hidden'}>
         <Stack
-          // textAlign={'center'}
+          // textAlign={{ base: 'center', md: 'left' }}
+          textAlign="left"
           p={6}
           color={useColorModeValue('gray.800', 'white')}
-          align={{ base: 'center', md: 'left' }}
+          align="left"
         >
           {/* <Text
-            fontSize="2xl"
-            fontWeight="bold"
-            p={2}
-            px={3}
-            bg={useColorModeValue('green.50', 'green.900')}
-            rounded={'full'}
-          >
-            {t("shop.checkout.title")}
-          </Text> */}
-          <Text
             fontSize={'sm'}
             fontWeight={500}
             bg={useColorModeValue('green.50', 'green.900')}
@@ -119,7 +110,10 @@ export default function CheckoutCardMollie() {
             color={'green.500'}
             rounded={'full'}>
             {t("shop.checkout.title")}
-          </Text>
+          </Text> */}
+          <Heading as="h3" size="sm">
+            {t("shop.checkout.title")}
+          </Heading>
           <Box width="100%">
             <ShopCheckoutForm formik={formik} />
           </Box>

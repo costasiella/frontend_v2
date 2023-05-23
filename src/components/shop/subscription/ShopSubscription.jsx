@@ -83,7 +83,7 @@ export default function ShopSubscription() {
       </Heading>
       <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>
         <ShopPricingCard
-          height="327px"
+          // height="327px"
           title={subscription.name}
           price={subscription.priceTodayDisplay}
           priceUnit={t("general.month")}

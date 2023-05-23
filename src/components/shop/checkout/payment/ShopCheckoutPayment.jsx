@@ -168,7 +168,7 @@ export default function ShopCheckoutPayment() {
   return (
     <React.Fragment>
       <Heading as="h2" fontSize="24px" textAlign={{base: "center", md:  "left"}}>
-        {t("shop.checkout.payment")}
+        {t("shop.checkout.title")}
       </Heading>
       <ShopCheckoutProgress step={1} />
       <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>
@@ -176,6 +176,8 @@ export default function ShopCheckoutPayment() {
           <Card 
             maxW={{ base: '330px', md: '500px', lg: "1000px"}}
             w={'full'}
+            ml="auto"
+            mr="auto"
           >
             <CardHeader>
               <Heading as="h3" size="sm">
@@ -197,6 +199,8 @@ export default function ShopCheckoutPayment() {
           <Card 
             maxW={{ base: '330px', md: '500px', lg: "1000px"}}
             w={'full'}
+            ml="auto"
+            mr="auto"
           >
             <CardHeader>
               <Heading as="h3" size="sm">

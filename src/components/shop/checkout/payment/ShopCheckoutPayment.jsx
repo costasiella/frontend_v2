@@ -12,6 +12,7 @@ import {
   AlertTitle,
   AlertDescription,
   Box,
+  Button,
   Card, 
   CardHeader,
   CardBody,
@@ -51,7 +52,7 @@ export default function ShopCheckoutPayment() {
   const toast = useToast()
   let navigate = useNavigate()
 
-  const btnPayNow = useRef(null);
+  const btnPayNow = useRef(null)
   const initialBtnText = t('shop.checkout.payment.to_payment')
   // const initialBtnText = <span><Icon name="credit-card" /> {t('shop.checkout.payment.to_payment')} <Icon name="chevron-right" /></span>
   const [btn_text, setBtnText] = useState(initialBtnText)
@@ -87,6 +88,7 @@ export default function ShopCheckoutPayment() {
   let buttonNext
 
   function onClickPay() {
+    console.log(btnPayNow.current)
     btnPayNow.current.setAttribute("disabled", "disabled")
     // Due to some typying stuff, we can't use t a a direct input for the function.
     setBtnText(`${t("shop.checkout.payment.redirecting")}`)
@@ -127,34 +129,34 @@ export default function ShopCheckoutPayment() {
   if (!account.hasCompleteEnoughProfile) {
     // If not, show message that a more complete profile is required
     msgNextStep = t("shop.checkout.payment.profile_not_complete_enough")
-    buttonNext = <CSButtonPrimary 
-      href="/shop/account/profile"
+    buttonNext = <Link to="/shop/account/profile">
+      <CSButtonPrimary 
       buttonText={t("shop.checkout.payment.update_profile")}
       rightIcon={<FiChevronRight />}
-    />
-    // buttonNext = <Link to="/shop/account/profile">
-    //   <Button
-    //     block
-    //     color="primary"
-    //   >
-    //     {t("shop.checkout.payment.update_profile")} <Icon name="chevron-right" />
-    //   </Button>
-    // </Link>
+      />
+    </Link>
   } else if (onlinePaymentsAvailable) {
     msgNextStep = t("shop.checkout.payment.order_received_to_payment_text")
-    buttonNext = <button
-      className="btn btn-block btn-success"
+    buttonNext = <CSButtonPrimary
       ref={btnPayNow}
       onClick={ onClickPay }
-    >
-      {btn_text}
-    </button>
+      buttonText={t("shop.checkout.payment.pay_now")}
+      rightIcon={<FiChevronRight />}
+    />
+    // buttonNext = <button
+    //   className="btn btn-block btn-success"
+    //   ref={btnPayNow}
+    //   onClick={ onClickPay }
+    // >
+    //   {btn_text}
+    // </button>
   } else {
     msgNextStep = t("shop.checkout.payment.order_received_to_profile_text")
-    buttonNext = <CSButtonPrimary 
-      href="/"
-      buttonText={t("shop.checkout.payment.to_profile")}
-    />
+    buttonNext = <Link to="/">
+      <CSButtonPrimary 
+        buttonText={t("shop.checkout.payment.to_profile")}
+      />
+    </Link>
     // buttonNext = <Link to="/">
     //   <Button
     //     block

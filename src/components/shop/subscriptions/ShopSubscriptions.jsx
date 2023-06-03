@@ -11,6 +11,7 @@ import {
 
 import { QUERY_ORGANIZATION_SUBSCRIPTIONS } from "./queries";
 
+import CSError from '../../general/CSError';
 import CSSpinner from "../../general/CSSpinner";
 import ShopPricingCard from "../../general/ShopPricingCard";
 import { FiCheck } from "react-icons/fi";
@@ -26,7 +27,7 @@ export default function ShopSubscriptions() {
   if (error) {
     console.warn(error) 
     return (
-      <Box>{error.message}</Box>
+      <CSError errorMessage={error.message} />
     )
   }  
   

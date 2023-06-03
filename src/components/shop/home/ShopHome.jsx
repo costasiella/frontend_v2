@@ -13,6 +13,7 @@ import {
 
 import { QUERY_SHOP_ANNOUNCEMENTS } from "./queries";
 
+import CSError from '../../general/CSError';
 import CSSpinner from "../../general/CSSpinner";
 
 export default function ShopHome() {
@@ -25,7 +26,7 @@ export default function ShopHome() {
     if (error) {
       console.warn(error) 
       return (
-        <Box>{error.message}</Box>
+        <CSError errorMessage={error.message} />
       )
     }  
     

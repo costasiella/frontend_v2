@@ -91,16 +91,6 @@ export default function ShopCheckoutPayment() {
     // Due to some typying stuff, we can't use t a a direct input for the function.
     setBtnText(`${t("shop.checkout.payment.redirecting")}`)
 
-    // createPaymentLink({ variables: { id: id } }).then(({ data }) => {
-    //   console.log('got data', data);
-    //   const paymentLink = data.createFinanceOrderPaymentLink.financeOrderPaymentLink.paymentLink
-    //   window.location.href = paymentLink
-    // }).catch((error) => {
-    //   toast.error((t('general.toast_server_error')) +  error, {
-    //       position: toast.POSITION.BOTTOM_RIGHT
-    //     })
-    //   console.log('there was an error sending the query', error)
-    // })
     createPaymentLink({ id: id }).then(result => {
       console.log(result)
       if (result.error) {

@@ -20,6 +20,15 @@ import {
   Center,
   Heading,
   SimpleGrid,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
   Text,
   useToast,
 } from "@chakra-ui/react"
@@ -70,8 +79,18 @@ export default function ShopCheckoutOrderSummary() {
   console.log(data)
 
   const order = data.financeOrder
-  const account = data.financeOrder.account
   const orderItems = order.items.edges
+
+  let classDate 
+  let scheduleItemId
+  let item
+  for (item of orderItems) {
+    let node = item.node
+    if (node.scheduleItem) {
+      classDate = node.attendanceDate
+      scheduleItemId = node.scheduleItem.id
+    }
+  }
 
   return (
     <Card 
@@ -80,15 +99,44 @@ export default function ShopCheckoutOrderSummary() {
       mt={6}
       ml="auto"
       mr="auto"
-      >
+    >
       <CardHeader>
           <Heading as="h3" size="sm">
           {t("shop.checkout.order_summary")}
           </Heading>
       </CardHeader>
-      <CardBody>
-        table here - test
-      </CardBody>
+      <TableContainer>
+        <Table variant='simple'>
+          {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
+          <Thead>
+            <Tr>
+              <Th>{t("general.item")}</Th>
+              <Th isNumeric>{t("general.price")}</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {orderItems.map(({ node }) => (
+              <Tr>
+                <Td>
+                  {node.productName} <br /> 
+                  <span className="text-muted">
+                    {node.description}
+                  </span>
+                </Td>
+                <Td isNumeric>
+                 {node.totalDisplay}
+                </Td>
+              </Tr>
+            ))}
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th fontSize={"xs"}>{t("general.total")}</Th>
+              <Th isNumeric fontSize={"lg"} color="green.400">{order.totalDisplay}</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
     </Card>
   )
 }

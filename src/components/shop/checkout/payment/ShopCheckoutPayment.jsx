@@ -36,18 +36,16 @@ import CSError from "../../../general/CSError.jsx"
 import CSSpinner from "../../../general/CSSpinner"
 
 import ShopCheckoutProgress from "../../ShopCheckoutProgress"
+import ShopCheckoutOrderSummary from "../order_summary/ShopCheckoutOrderSummary"
 
 
 export default function ShopCheckoutPayment() {
-  /**
-   * @type {Object}
-   */
+  /** @type {Object} */
   const context = useContext(GlobalContext)
   const appSettings = context.appSettings
   const onlinePaymentsAvailable = appSettings.onlinePaymentsAvailable
   const matches = useMatches()
   const id = matches[0].params.id
-  {/* @ts-ignore */}
   const { t } = useTranslation()
   const toast = useToast()
   let navigate = useNavigate()
@@ -197,9 +195,10 @@ export default function ShopCheckoutPayment() {
               {buttonNext}
             </CardBody>
           </Card>
+          <ShopCheckoutOrderSummary />
         {/* </Center> */}
         {/* <Center py={6} alignItems={'start'}> */}
-          <Card 
+          {/* <Card 
             maxW={{ base: '330px', md: '500px', lg: "1000px"}}
             w={'full'}
             mt={6}
@@ -214,7 +213,7 @@ export default function ShopCheckoutPayment() {
             <CardBody>
               table here
             </CardBody>
-          </Card>
+          </Card> */}
         {/* </Center> */}
       </SimpleGrid>
     </React.Fragment>

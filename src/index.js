@@ -41,6 +41,7 @@ import UserLogin from "./components/user/login/UserLogin";
 import UserLogout from './components/user/logout/UserLogout';
 import UserWelcome from './components/user/welcome/UserWelcome';
 
+import ShopCheckoutComplete from './components/shop/checkout/complete/ShopCheckoutComplete';
 import ShopCheckoutPayment from './components/shop/checkout/payment/ShopCheckoutPayment';
 import ShopHome from './components/shop/home/ShopHome';
 import ShopSubscription from './components/shop/subscription/ShopSubscription';
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
         index: true,
         element: <ShopHome />,
       }, 
+      {
+        path: "checkout/complete/:id",
+        element: <ShopCheckoutComplete />
+      },
       {
         path: "checkout/payment/:id",
         element: <ShopCheckoutPayment />

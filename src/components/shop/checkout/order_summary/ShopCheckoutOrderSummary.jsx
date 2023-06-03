@@ -132,7 +132,7 @@ export default function ShopCheckoutOrderSummary() {
           <Tfoot>
             <Tr>
               <Th fontSize={"xs"}>{t("general.total")}</Th>
-              <Th isNumeric fontSize={"lg"} color="green.400">{order.totalDisplay}</Th>
+              <Th isNumeric fontSize={"xl"} color="green.400">{order.totalDisplay}</Th>
             </Tr>
           </Tfoot>
         </Table>

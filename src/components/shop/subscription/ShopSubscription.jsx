@@ -24,7 +24,7 @@ import CSSpinner from "../../general/CSSpinner";
 import ShopPricingCard from "../../general/ShopPricingCard";
 import { FiCheck } from "react-icons/fi";
 import ShopCheckoutProgress from '../ShopCheckoutProgress';
-import CheckoutCardMollie from './CheckoutCardMollie';
+import ShopSubscriptionCheckoutCardMollie from './ShopSubscriptionCheckoutCardMollie';
 
 export default function ShopSubscription() {
   const matches = useMatches()
@@ -72,7 +72,7 @@ export default function ShopSubscription() {
       CheckoutCard = "Direct debit checkout"
     }
   } else {
-    CheckoutCard = <CheckoutCardMollie />
+    CheckoutCard = <ShopSubscriptionCheckoutCardMollie />
     // CheckoutCard = "Mollie checkout"
   }
 

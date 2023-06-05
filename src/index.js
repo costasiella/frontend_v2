@@ -43,6 +43,7 @@ import UserWelcome from './components/user/welcome/UserWelcome';
 
 import ShopCheckoutComplete from './components/shop/checkout/complete/ShopCheckoutComplete';
 import ShopCheckoutPayment from './components/shop/checkout/payment/ShopCheckoutPayment';
+import ShopClasspass from './components/shop/classpass/ShopClasspass';
 import ShopClasspasses from './components/shop/classpasses/ShopClasspasses';
 import ShopHome from './components/shop/home/ShopHome';
 import ShopSubscription from './components/shop/subscription/ShopSubscription';
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: "classpasses",
         element: <ShopClasspasses />
+      },
+      {
+        path: "classpasses/:id",
+        element: <ShopClasspass />
       },
       {
         path: "subscriptions",

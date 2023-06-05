@@ -3,23 +3,11 @@ import React, { useContext } from "react"
 import { useQuery, useMutation } from "urql"
 import { useMatches } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
 
 import { 
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  Box,
-  Button,
   Card, 
   CardHeader,
-  CardBody,
-  CardFooter,
-  Center,
   Heading,
-  SimpleGrid,
   Table,
   Thead,
   Tbody,
@@ -27,35 +15,26 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
   Text,
-  useToast,
 } from "@chakra-ui/react"
-import { FiChevronRight } from "react-icons/fi"
 
 
-import GlobalContext from '../../../contexts/GlobalContext';
+import GlobalContext from '../contexts/GlobalContext';
 
-import { QUERY_ORDER } from "../queries"
+import { QUERY_ORDER } from "../shop/checkout/queries"
 
-import CSButtonPrimary from "../../../general/CSButtonPrimary"
-import CSError from "../../../general/CSError.jsx"
-import CSSpinner from "../../../general/CSSpinner"
-
-import ShopCheckoutProgress from "../../ShopCheckoutProgress"
+import CSError from "./CSError.jsx"
+import CSSpinner from "./CSSpinner"
 
 
 export default function ShopCheckoutOrderSummary() {
   /** @type {Object} */
   const context = useContext(GlobalContext)
   const appSettings = context.appSettings
-  const onlinePaymentsAvailable = appSettings.onlinePaymentsAvailable
   const matches = useMatches()
   const id = matches[0].params.id
   const { t } = useTranslation()
-  const toast = useToast()
-  let navigate = useNavigate()
 
 
   const [result] = useQuery({
@@ -75,8 +54,6 @@ export default function ShopCheckoutOrderSummary() {
   if (fetching) {
     return <CSSpinner />
   }
-
-  console.log(data)
 
   const order = data.financeOrder
   const orderItems = order.items.edges
@@ -107,7 +84,6 @@ export default function ShopCheckoutOrderSummary() {
       </CardHeader>
       <TableContainer>
         <Table variant='simple'>
-          {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
           <Thead>
             <Tr>
               <Th>{t("general.item")}</Th>
@@ -119,9 +95,9 @@ export default function ShopCheckoutOrderSummary() {
               <Tr>
                 <Td>
                   {node.productName} <br /> 
-                  <span className="text-muted">
-                    {node.description}
-                  </span>
+                  <Text color="gray.500">
+                    <small>{node.description}</small>
+                  </Text>
                 </Td>
                 <Td isNumeric>
                  {node.totalDisplay}

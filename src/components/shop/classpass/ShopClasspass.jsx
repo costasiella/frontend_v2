@@ -25,7 +25,7 @@ import CSSpinner from "../../general/CSSpinner";
 import ShopPricingCard from "../../general/ShopPricingCard";
 import { FiCheck } from "react-icons/fi";
 import ShopCheckoutProgress from '../ShopCheckoutProgress';
-import ShopCheckoutCardMollie from '../../general/ShopCheckoutCardMollie';
+import ShopClasspassCheckoutCardMollie from './ShopClasspassCheckoutCardMollie';
 
 export default function ShopSubscription() {
   const matches = useMatches()
@@ -83,11 +83,7 @@ export default function ShopSubscription() {
             },
           ]}
         />
-        {/* <ShopCheckoutCardMollie /> */}
-        {/* <ShopInfoCard
-          title={t("shop.subscription.info")}
-          description={<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(subscription.description) }}></div>}
-        /> */}
+        <ShopClasspassCheckoutCardMollie />
       </SimpleGrid>
     </React.Fragment>
   )

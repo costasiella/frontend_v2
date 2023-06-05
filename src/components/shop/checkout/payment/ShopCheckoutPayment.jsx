@@ -36,7 +36,7 @@ import CSError from "../../../general/CSError.jsx"
 import CSSpinner from "../../../general/CSSpinner"
 
 import ShopCheckoutProgress from "../../ShopCheckoutProgress"
-import ShopCheckoutOrderSummary from "../order_summary/ShopCheckoutOrderSummary"
+import ShopCheckoutOrderSummary from "../../../general/ShopCheckoutOrderSummary"
 
 
 export default function ShopCheckoutPayment() {

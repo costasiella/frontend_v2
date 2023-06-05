@@ -19,11 +19,15 @@ import {
 } from 'react-icons/fi';
 
 /**
+ * @typedef {import("i18next").DefaultTFuncReturn} DefaultTFuncReturn
+ */
+
+/**
  * ShopPricingCard
  * @typedef {Object} ShopPricingCard
  * @property {string} title - The card title
  * @property {Float32Array} price - The price
- * @property {string} priceUnit - The unit of the price (eg. WEEK)
+ * @property {string | DefaultTFuncReturn} [priceUnit] - The unit of the price (eg. WEEK)
  * @property {string} [buttonHref] - The url the button will link to
  * @property {string} [buttonText] - The text displayed on the button
  * @property {Array} cardItems - Items displayed on the card

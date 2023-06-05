@@ -9,17 +9,17 @@ import {
     SimpleGrid
   } from "@chakra-ui/react";
 
-import { QUERY_ORGANIZATION_SUBSCRIPTIONS } from "./queries";
+import { QUERY_ORGANIZATION_CLASSPASSES } from "./queries";
 
 import CSError from '../../general/CSError';
 import CSSpinner from "../../general/CSSpinner";
 import ShopPricingCard from "../../general/ShopPricingCard";
 import { FiCheck } from "react-icons/fi";
 
-export default function ShopSubscriptions() {
+export default function ShopClasspasses() {
   const { t } = useTranslation()
   const [result] = useQuery({
-    query: QUERY_ORGANIZATION_SUBSCRIPTIONS,
+    query: QUERY_ORGANIZATION_CLASSPASSES,
   });
     
   const { data, fetching, error } = result;
@@ -35,21 +35,20 @@ export default function ShopSubscriptions() {
     return <CSSpinner />
   }
 
-  const subscriptions = data.organizationSubscriptions
+  const classpasses = data.organizationClasspasses
 
   return (
     <React.Fragment>
       <Heading as="h2" fontSize="24px" textAlign={{base: "center", md:  "left"}}>
-        {t("shop.menu.subscriptions")}
+        {t("shop.menu.classpasses")}
       </Heading>
       <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>
-        {subscriptions.edges.map(({ node }) => (
+        {classpasses.edges.map(({ node }) => (
           <ShopPricingCard
             key={node.id}
             title={node.name}
-            price={node.priceTodayDisplay}
-            priceUnit={t("general.month")}
-            buttonHref={`/shop/subscriptions/${node.id}`}
+            price={node.priceDisplay}
+            buttonHref={`/shop/classpasses/${node.id}`}
             buttonText="Choose"
             cardItems={[
               {
@@ -57,15 +56,15 @@ export default function ShopSubscriptions() {
                 text: <React.Fragment>{(node.unlimited) ? 
                   t('general.unlimited') :
                   <span>
-                    {node.classes} {(node.classes === 1) ? t('general.class') : t('general.classes')} {" "}
-                    {t("general.a")} {node.subscriptionUnitDisplay.toLowerCase()}</span>}
+                    {node.classes} {(node.classes === 1) ? t('general.class') : t('general.classes')}
+                  </span>}
                 </React.Fragment>
               },
               {
                 icon: FiCheck,
                 text: <React.Fragment>
-                  {t('general.min_duration')} { " " }
-                  <b><i>{node.minDuration} {(node.minDuration === 1) ? t("general.month") : t("general.months")}</i></b>
+                  {t('general.valid_for')} { " " }
+                  <b><i>{node.validity} {' '} {node.validityUnitDisplay}</i></b>
                 </React.Fragment>
               },
             ]}

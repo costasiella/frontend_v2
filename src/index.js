@@ -43,9 +43,11 @@ import UserWelcome from './components/user/welcome/UserWelcome';
 
 import ShopCheckoutComplete from './components/shop/checkout/complete/ShopCheckoutComplete';
 import ShopCheckoutPayment from './components/shop/checkout/payment/ShopCheckoutPayment';
+import ShopClasspasses from './components/shop/classpasses/ShopClasspasses';
 import ShopHome from './components/shop/home/ShopHome';
 import ShopSubscription from './components/shop/subscription/ShopSubscription';
 import ShopSubscriptions from './components/shop/subscriptions/ShopSubscriptions';
+
 
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
@@ -81,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: "checkout/payment/:id",
         element: <ShopCheckoutPayment />
+      },
+      {
+        path: "classpasses",
+        element: <ShopClasspasses />
       },
       {
         path: "subscriptions",

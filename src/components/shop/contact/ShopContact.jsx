@@ -14,6 +14,7 @@ import {
 
 import GlobalContext from '../../contexts/GlobalContext';
 import cs_django_links from "../../../constants/cs_django_links";
+import CSCardheading from "../../general/CSCardHeading";
 
 export default function ShopContact() {
   /**
@@ -37,9 +38,9 @@ export default function ShopContact() {
         mr="auto"
       >
         <CardBody>
-          <Heading as="h3" size="sm" mb={6}>
+          <CSCardheading>
             {organization.name}
-          </Heading>
+          </CSCardheading>
           <Text>
             <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(organization.address) }} />
           </Text>

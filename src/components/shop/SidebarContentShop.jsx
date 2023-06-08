@@ -16,6 +16,7 @@ import {
   FiCreditCard,
   FiBook,
   FiCalendar,
+  FiMessageCircle
 } from 'react-icons/fi';
 
 // Contexts
@@ -72,6 +73,12 @@ function getLinkItems(t, shopFeatures) {
       href: '/shop/classpasses'
     })
   }
+
+  linkItems.push({ 
+    name: t("shop.menu.contact"), 
+    icon: FiMessageCircle, 
+    href: '/shop/contact' 
+  })
 
   return linkItems
 }

@@ -45,6 +45,7 @@ import ShopCheckoutComplete from './components/shop/checkout/complete/ShopChecko
 import ShopCheckoutPayment from './components/shop/checkout/payment/ShopCheckoutPayment';
 import ShopClasspass from './components/shop/classpass/ShopClasspass';
 import ShopClasspasses from './components/shop/classpasses/ShopClasspasses';
+import ShopContact from './components/shop/contact/ShopContact';
 import ShopHome from './components/shop/home/ShopHome';
 import ShopSubscription from './components/shop/subscription/ShopSubscription';
 import ShopSubscriptions from './components/shop/subscriptions/ShopSubscriptions';
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         path: "subscriptions",
         element: <ShopSubscriptions />
+      },
+      {
+        path: "contact",
+        element: <ShopContact />
       },
       {
         path: "subscriptions/:id",

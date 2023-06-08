@@ -1,28 +1,24 @@
+// @ts-check
+
 import React, { useContext } from "react"
 import { useTranslation } from "react-i18next"
 import DOMPurify from 'dompurify'
 import { 
-    Box,
     Card,
     CardBody,
     CardFooter,
     Heading,
     Link,
-    List,
-    ListIcon,
-    ListItem,
     Text,
-    useColorModeValue
 } from "@chakra-ui/react"
-import { MdCheckCircle } from "react-icons/md"
 
 import GlobalContext from '../../contexts/GlobalContext';
 import cs_django_links from "../../../constants/cs_django_links";
 
 export default function ShopContact() {
   /**
-     * @type {Object}
-     */
+   * @type {Object}
+   */
   const context = useContext(GlobalContext)
   const { t } = useTranslation()
 

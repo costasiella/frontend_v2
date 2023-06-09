@@ -3,7 +3,7 @@
 import React from 'react'
 import { Heading } from "@chakra-ui/react"
 
-export default function CSCardheading(props) { 
+export default function CSShopCardheading(props) { 
   const { children, ...rest } = props
 
   return (

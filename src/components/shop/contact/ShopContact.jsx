@@ -14,7 +14,8 @@ import {
 
 import GlobalContext from '../../contexts/GlobalContext';
 import cs_django_links from "../../../constants/cs_django_links";
-import CSCardheading from "../../general/CSCardHeading";
+import CSShopCard from "../../general/CSShopCard";
+import CSShopCardHeading from "../../general/CSShopCardHeading";
 
 export default function ShopContact() {
   /**
@@ -30,7 +31,7 @@ export default function ShopContact() {
       <Heading as="h2" fontSize="24px" textAlign={{base: "center", md:  "left"}}>
         {t("shop.contact.title")} 
       </Heading>
-      <Card 
+      <CSShopCard 
         maxW={{ base: '330px', md: '500px', lg: "3000px"}}
         w={'full'}
         mt={6}
@@ -38,9 +39,9 @@ export default function ShopContact() {
         mr="auto"
       >
         <CardBody>
-          <CSCardheading>
+          <CSShopCardHeading>
             {organization.name}
-          </CSCardheading>
+          </CSShopCardHeading>
           <Text>
             <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(organization.address) }} />
           </Text>
@@ -72,7 +73,7 @@ export default function ShopContact() {
             </Link>
           </small>
         </CardFooter>
-      </Card>
+      </CSShopCard>
     </React.Fragment>
   )
 }

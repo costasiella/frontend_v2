@@ -1,4 +1,4 @@
-import { gql } from 'url'
+import { gql } from 'urql'
 
 export const QUERY_SCHEDULE_EVENTS = gql`
   query ScheduleEvents($before:String, $after:String) {

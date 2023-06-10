@@ -1,7 +1,6 @@
 // @ts-check
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from 'urql';
 import { useNavigate } from 'react-router-dom';
@@ -32,9 +31,7 @@ import {
 
   
   export default function UserLogin() {
-    /**
-     * @type {Object}
-     */
+    /** @type {Object} */
     const context = useContext(GlobalContext)
     const { t } = useTranslation()
     let navigate = useNavigate()

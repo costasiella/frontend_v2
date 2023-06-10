@@ -46,9 +46,11 @@ import ShopCheckoutPayment from './components/shop/checkout/payment/ShopCheckout
 import ShopClasspass from './components/shop/classpass/ShopClasspass';
 import ShopClasspasses from './components/shop/classpasses/ShopClasspasses';
 import ShopContact from './components/shop/contact/ShopContact';
+import ShopEvents from './components/shop/events/ShopEvents';
 import ShopHome from './components/shop/home/ShopHome';
 import ShopSubscription from './components/shop/subscription/ShopSubscription';
 import ShopSubscriptions from './components/shop/subscriptions/ShopSubscriptions';
+
 
 
 const container = document.getElementById("root")
@@ -93,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: "classpasses/:id",
         element: <ShopClasspass />
+      },
+      {
+        path: "events",
+        element: <ShopEvents />
       },
       {
         path: "subscriptions",

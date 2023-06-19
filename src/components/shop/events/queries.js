@@ -48,6 +48,15 @@ export const QUERY_SCHEDULE_EVENTS = gql`
               }
             }
           }
+          tickets(first: 1, fullEvent:true, deletable: false) {
+            edges {
+              node {
+                priceDisplay
+                isSoldOut
+                isEarlybirdPrice
+              }
+            }
+          }
           media(first: 1) {
             pageInfo {
               hasNextPage

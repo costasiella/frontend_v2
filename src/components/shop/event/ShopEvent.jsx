@@ -24,7 +24,7 @@ import { QUERY_SCHEDULE_EVENT } from "./queries";
 import GlobalContext from '../../contexts/GlobalContext';
 
 import CSError from "../../general/CSError";
-import CSShopPagedheading from "../../general/CSShopPageHeading"
+import CSShopPageheading from "../../general/CSShopPageHeading"
 import CSSpinner from "../../general/CSSpinner";
 
 export default function ShopEvent() {
@@ -54,13 +54,13 @@ export default function ShopEvent() {
     return <CSSpinner />
   }
 
-  const events = data.scheduleEvents
+  const event = data.scheduleEvent
 
 
   return <React.Fragment>
-    <CSShopPagedheading>
-      {t("shop.event.title")}
-    </CSShopPagedheading>
+    <CSShopPageheading>
+      {event.name}
+    </CSShopPageheading>
     Hello world!
   </React.Fragment>
 }

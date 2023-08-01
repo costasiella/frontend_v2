@@ -32,7 +32,6 @@ export default function Shop() {
   return (
     <GlobalContextProvider value={data}>
       <SidebarWithHeaderShop>
-        {/* TODO: Use a context here to pass props from child components; eg to determine which menu items to show? */}
         <Outlet />
       </SidebarWithHeaderShop>
     </GlobalContextProvider>

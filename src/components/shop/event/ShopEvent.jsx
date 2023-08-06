@@ -8,8 +8,12 @@ import { Link, useMatches } from "react-router-dom"
 import { 
   Badge,
   Box,
+  CardBody,
+  CardHeader,
   Circle,
   Flex,
+  Grid,
+  GridItem,
   Image,
   SimpleGrid,
   Text,
@@ -24,6 +28,8 @@ import { QUERY_SCHEDULE_EVENT } from "./queries";
 import GlobalContext from '../../contexts/GlobalContext';
 
 import CSError from "../../general/CSError";
+import CSShopCard from "../../general/CSShopCard"
+import CSShopCardheading from "../../general/CSShopCardHeading"
 import CSShopPageheading from "../../general/CSShopPageHeading"
 import CSSpinner from "../../general/CSSpinner";
 
@@ -61,6 +67,29 @@ export default function ShopEvent() {
     <CSShopPageheading>
       {event.name}
     </CSShopPageheading>
-    Hello world!
+    <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+      <GridItem colSpan={1}>
+        <CSShopCard>
+          <Image
+            src={(event.media.edges.length) ? event.media.edges[0].node.urlImageThumbnailLarge: ""}
+            alt={`Picture of ${event.name}`}
+            roundedTop="lg"
+            roundedBottom="lg"
+          />
+        </CSShopCard>
+      </GridItem>
+      <GridItem colSpan={2}>
+        <CSShopCard>
+          <CardBody>
+            {/* Card heading */}
+            <CSShopCardheading>
+              {event.tagline}
+            </CSShopCardheading>
+            {/* Card contents */}
+            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description) }} />
+          </CardBody>
+        </CSShopCard>
+      </GridItem>
+    </Grid>
   </React.Fragment>
 }

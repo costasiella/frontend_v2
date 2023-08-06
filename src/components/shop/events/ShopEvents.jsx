@@ -24,6 +24,7 @@ import { QUERY_SCHEDULE_EVENTS } from "./queries";
 import GlobalContext from '../../contexts/GlobalContext';
 
 import CSError from "../../general/CSError";
+import CSShopCard from "../../general/CSShopCard"
 import CSShopPagedheading from "../../general/CSShopPageHeading"
 import CSSpinner from "../../general/CSSpinner";
 
@@ -57,17 +58,9 @@ export default function ShopEvents() {
     <CSShopPagedheading>
       {t("shop.events.title")}
     </CSShopPagedheading>
-    <SimpleGrid spacing="4" minChildWidth="300px" columns={3}>
+    <SimpleGrid spacing="4" minChildWidth={{ base: "300px", md: "425px"}} columns={3}>
       {events.edges.map(({ node }) => (
-        <Flex p={{base: 50, md: 0}} mt={{base:0, md:6}} w="full" alignItems="center" justifyContent={{ base: "center", md: "left"}}>
-          <Box
-            bg={bg}
-            maxW="sm"
-            borderWidth="1px"
-            rounded="lg"
-            shadow="lg"
-            position="relative">
-
+        <CSShopCard>
           {(node.media.edges.length) ?
             <Link to={`/shop/events/${node.id}`}>
               <Image
@@ -84,7 +77,8 @@ export default function ShopEvents() {
                     fontWeight="semibold"
                     as="h4"
                     lineHeight="tight"
-                    isTruncated>
+                    // isTruncated
+                  >
                     {node.name}
                   </Box>
                 </Flex>
@@ -116,8 +110,7 @@ export default function ShopEvents() {
                 </Link>
               </Box>
             </Box>
-          </Box>
-        </Flex>  
+          </CSShopCard>
       ))}
     </SimpleGrid>
   </React.Fragment>

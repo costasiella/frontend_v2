@@ -1,10 +1,14 @@
 // @ts-check
 
 import React from 'react'
-import { Card } from "@chakra-ui/react"
+import { 
+  Card,
+  useColorModeValue
+} from "@chakra-ui/react"
 
 export default function CSShopCard(props) { 
   const { children, ...rest } = props
+  
 
   return (
     <Card 
@@ -13,6 +17,7 @@ export default function CSShopCard(props) {
       mt={6}
       ml="auto"
       mr="auto"
+      bg={useColorModeValue('white', 'gray.800')}
       {...rest}
     >
       {children}

@@ -15,13 +15,17 @@ import {
   Grid,
   GridItem,
   Image,
+  List,
+  ListItem,
+  ListIcon,
   SimpleGrid,
   Text,
   Tooltip,
   useColorModeValue
 } from "@chakra-ui/react";
 import {
-  FiChevronRight, 
+  FiCalendar,
+  FiUser, 
 } from 'react-icons/fi';
 
 import { QUERY_SCHEDULE_EVENT } from "./queries";
@@ -67,18 +71,44 @@ export default function ShopEvent() {
     <CSShopPageheading>
       {event.name}
     </CSShopPageheading>
-    <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+      <CSShopCard>
+      <CardBody>
+        <List spacing={0}>
+          <ListItem key={`li_1`}>
+            <ListIcon as={FiUser} />
+            {event.instructor.fullName}
+          </ListItem>
+          <ListItem key={`li_2`}>
+            <small>
+            <ListIcon as={FiCalendar} />
+            {moment(event.dateStart).format(dateFormat)}
+            </small>
+          </ListItem>
+        </List>
+        {/* <CSShopCardheading>
+        <FiUser /> {event.instructor.fullName}
+        </CSShopCardheading>
+        : {(event.dateStart) ? moment(event.dateStart).format(dateFormat): ""}
+        { (event.dateStart == event.dateEnd) ? "" : 
+          <React.Fragment>
+            {t('general.end')}: {(event.dateEnd) ? moment(event.dateEnd).format(dateFormat): ""} }
+          </React.Fragment> } */}
+      </CardBody>
+      </CSShopCard>
+    <Grid templateColumns={{ base: "1", lg: 'repeat(3, 1fr)'}} gap={6}>
       <GridItem colSpan={1}>
         <CSShopCard>
-          <Image
-            src={(event.media.edges.length) ? event.media.edges[0].node.urlImageThumbnailLarge: ""}
-            alt={`Picture of ${event.name}`}
-            roundedTop="lg"
-            roundedBottom="lg"
-          />
+          <CardBody>
+            <Image
+              src={(event.media.edges.length) ? event.media.edges[0].node.urlImageThumbnailLarge: ""}
+              alt={`Picture of ${event.name}`}
+              roundedTop="md"
+              roundedBottom="md"
+            />
+          </CardBody>
         </CSShopCard>
       </GridItem>
-      <GridItem colSpan={2}>
+      <GridItem colSpan={{base: 1, lg: 2}}>
         <CSShopCard>
           <CardBody>
             {/* Card heading */}

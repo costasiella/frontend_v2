@@ -58,7 +58,7 @@ export default function ShopEvents() {
     <CSShopPagedheading>
       {t("shop.events.title")}
     </CSShopPagedheading>
-    <SimpleGrid spacing="4" minChildWidth={{ base: "300px", md: "425px"}} columns={3}>
+    <SimpleGrid spacing="4" minChildWidth={{ base: "300px", md: "330px"}} columns={3}>
       {events.edges.map(({ node }) => (
         <CSShopCard>
           {(node.media.edges.length) ?
@@ -66,7 +66,8 @@ export default function ShopEvents() {
               <Image
                 src={(node.media.edges.length) ? node.media.edges[0].node.urlImageThumbnailLarge: ""}
                 alt={`Picture of ${node.name}`}
-                roundedTop="lg"
+                roundedTop="md"
+                width="full"
               />
             </Link> : "" }
             <Box p="6">

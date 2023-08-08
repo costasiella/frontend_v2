@@ -85,14 +85,6 @@ export default function ShopEvent() {
             </small>
           </ListItem>
         </List>
-        {/* <CSShopCardheading>
-        <FiUser /> {event.instructor.fullName}
-        </CSShopCardheading>
-        : {(event.dateStart) ? moment(event.dateStart).format(dateFormat): ""}
-        { (event.dateStart == event.dateEnd) ? "" : 
-          <React.Fragment>
-            {t('general.end')}: {(event.dateEnd) ? moment(event.dateEnd).format(dateFormat): ""} }
-          </React.Fragment> } */}
       </CardBody>
       </CSShopCard>
     <Grid templateColumns={{ base: "1", lg: 'repeat(3, 1fr)'}} gap={6}>

@@ -6,6 +6,10 @@ import moment from "moment"
 import DOMPurify from 'dompurify'
 import { Link, useMatches } from "react-router-dom"
 import { 
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
   Badge,
   Box,
   CardBody,
@@ -14,6 +18,7 @@ import {
   Flex,
   Grid,
   GridItem,
+  Heading,
   Image,
   List,
   ListItem,
@@ -31,6 +36,7 @@ import {
 import { QUERY_SCHEDULE_EVENT } from "./queries";
 import GlobalContext from '../../contexts/GlobalContext';
 
+import CSAuth from "../../../tools/authentication"
 import CSError from "../../general/CSError";
 import CSShopCard from "../../general/CSShopCard"
 import CSShopCardheading from "../../general/CSShopCardHeading"
@@ -111,6 +117,32 @@ export default function ShopEvent() {
             <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description) }} />
           </CardBody>
         </CSShopCard>
+      </GridItem>
+    </Grid>
+    <Grid templateColumns={{ base: "1", lg: 'repeat(3, 1fr)'}} gap={6}>
+      <GridItem colSpan={3}>
+        <Heading as="h3" size="md">
+          {t('general.tickets')}
+        </Heading>
+      </GridItem>
+      <GridItem colSpan={3}>
+        {(!CSAuth.userIsSignedin()) ? 
+          <Alert 
+            status='info'
+            variant='subtle'
+            flexDirection='column'
+            alignItems='left'
+            justifyContent='left'
+            textAlign='left'
+            roundedTop='md'
+            roundedBottom='md'
+          >
+            <AlertDescription>
+            <Link to="/user/login">
+              <b>{t("general.sign_in")}</b>
+            </Link> {t("shop.events.sign_in_to_see_discounts")}</AlertDescription>
+          </Alert>
+        : ""}
       </GridItem>
     </Grid>
   </React.Fragment>

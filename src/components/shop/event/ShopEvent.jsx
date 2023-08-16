@@ -40,6 +40,7 @@ import GlobalContext from '../../contexts/GlobalContext';
 
 import CSAuth from "../../../tools/authentication"
 import CSError from "../../general/CSError";
+import ShopPricingCard from "../../general/ShopPricingCard"
 import CSShopCard from "../../general/CSShopCard"
 import CSShopCardheading from "../../general/CSShopCardHeading"
 import CSShopPageheading from "../../general/CSShopPageHeading"
@@ -73,6 +74,7 @@ export default function ShopEvent() {
   }
 
   const event = data.scheduleEvent
+  const tickets = event.tickets
 
 
   return <React.Fragment>
@@ -150,6 +152,13 @@ export default function ShopEvent() {
           </Alert>
         : ""}
       </GridItem>
+      {tickets.edges.map(({ node }) => (
+        <GridItem>
+          <CSShopCard>
+            {node.name}
+          </CSShopCard>
+        </GridItem>
+      ))}
     </Grid>
   </React.Fragment>
 }

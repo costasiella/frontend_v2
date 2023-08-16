@@ -12,6 +12,7 @@ import {
   AlertDescription,
   Badge,
   Box,
+  Button,
   CardBody,
   CardHeader,
   Circle,
@@ -29,6 +30,7 @@ import {
   useColorModeValue
 } from "@chakra-ui/react";
 import {
+  FiArrowRight,
   FiCalendar,
   FiUser, 
 } from 'react-icons/fi';
@@ -128,7 +130,7 @@ export default function ShopEvent() {
       <GridItem colSpan={3}>
         {(!CSAuth.userIsSignedin()) ? 
           <Alert 
-            status='info'
+            status='success'
             variant='subtle'
             flexDirection='column'
             alignItems='left'
@@ -138,9 +140,13 @@ export default function ShopEvent() {
             roundedBottom='md'
           >
             <AlertDescription>
-            <Link to="/user/login">
-              <b>{t("general.sign_in")}</b>
-            </Link> {t("shop.events.sign_in_to_see_discounts")}</AlertDescription>
+              <Link to="/user/login">
+                <Button rightIcon={<FiArrowRight />} colorScheme='green'  size="sm" mr="3">
+                  {t("general.sign_in")}
+                </Button>
+              </Link> 
+              <Text as="span" color="green">{t("shop.events.sign_in_to_see_discounts")}</Text>
+            </AlertDescription>
           </Alert>
         : ""}
       </GridItem>

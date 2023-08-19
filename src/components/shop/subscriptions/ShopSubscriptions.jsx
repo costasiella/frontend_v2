@@ -50,7 +50,7 @@ export default function ShopSubscriptions() {
             price={node.priceTodayDisplay}
             priceUnit={t("general.month")}
             buttonHref={`/shop/subscriptions/${node.id}`}
-            buttonText="Choose"
+            buttonText={t("general.choose")}
             cardItems={[
               {
                 icon: FiCheck,

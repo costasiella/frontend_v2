@@ -29,7 +29,7 @@ import {
  * @property {Float32Array} price - The price
  * @property {string | DefaultTFuncReturn} [priceUnit] - The unit of the price (eg. WEEK)
  * @property {string} [buttonHref] - The url the button will link to
- * @property {string} [buttonText] - The text displayed on the button
+ * @property {string | DefaultTFuncReturn} [buttonText] - The text displayed on the button
  * @property {Array} cardItems - Items displayed on the card
  * @property {string} [height] - The heigh of the card
  */

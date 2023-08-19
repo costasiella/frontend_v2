@@ -32,6 +32,7 @@ import {
 import {
   FiArrowRight,
   FiCalendar,
+  FiCheck,
   FiUser, 
 } from 'react-icons/fi';
 
@@ -125,38 +126,67 @@ export default function ShopEvent() {
     </Grid>
     <Grid templateColumns={{ base: "1", lg: 'repeat(3, 1fr)'}} gap={6}>
       <GridItem colSpan={3}>
-        <Heading as="h3" size="md">
+        <Heading 
+          as="h3" 
+          size="md"
+          mt={6}
+          textAlign={{base: "center", md:  "left"}}
+        >
           {t('general.tickets')}
         </Heading>
       </GridItem>
       <GridItem colSpan={3}>
         {(!CSAuth.userIsSignedin()) ? 
           <Alert 
-            status='success'
+            status='info'
             variant='subtle'
             flexDirection='column'
             alignItems='left'
             justifyContent='left'
-            textAlign='left'
+            textAlign={{base: "center", md:  "left"}}
             roundedTop='md'
             roundedBottom='md'
+            maxW={{ base: '330px', md: '700px', lg: "3000px"}}
+            w={'full'}
+            ml="auto"
+            mr="auto"
           >
             <AlertDescription>
               <Link to="/user/login">
-                <Button rightIcon={<FiArrowRight />} colorScheme='green'  size="sm" mr="3">
+                <Button rightIcon={<FiArrowRight />} colorScheme='blue'  size="sm" mr="3">
                   {t("general.sign_in")}
                 </Button>
               </Link> 
-              <Text as="span" color="green">{t("shop.events.sign_in_to_see_discounts")}</Text>
+              <Text as="span" color="">{t("shop.events.sign_in_to_see_discounts")}</Text>
             </AlertDescription>
           </Alert>
         : ""}
       </GridItem>
       {tickets.edges.map(({ node }) => (
-        <GridItem>
-          <CSShopCard>
-            {node.name}
-          </CSShopCard>
+        <GridItem
+        >
+          <ShopPricingCard
+            key={node.id}
+            title={node.name}
+            price={node.totalPriceDisplay}
+            priceUnit=""
+            buttonHref={`/shop/event_ticket/${node.id}`}
+            buttonText={t("shop.events.buy_ticket")}
+            cardItems ={
+              node.ticketScheduleItems.edges.map(({ node: activity }) => (
+                {
+                  icon: FiCalendar,
+                  text: <React.Fragment>
+                    {activity.scheduleItem.name} <br />
+                    <small>
+                      
+                      {activity.scheduleItem.dateStart} {activity.scheduleItem.timeStart} - {activity.scheduleItem.timeEnd}
+                    </small>
+                  </React.Fragment>
+                }
+              ))
+            }
+          />
         </GridItem>
       ))}
     </Grid>

@@ -6,14 +6,11 @@ import moment from "moment"
 import DOMPurify from 'dompurify'
 import { Link } from "react-router-dom"
 import { 
-  Badge,
   Box,
-  Circle,
   Flex,
   Image,
   SimpleGrid,
   Text,
-  Tooltip,
   useColorModeValue
 } from "@chakra-ui/react";
 import {
@@ -23,6 +20,7 @@ import {
 import { QUERY_SCHEDULE_EVENTS } from "./queries";
 import GlobalContext from '../../contexts/GlobalContext';
 
+import CSButtonPrimary from "../../general/CSButtonPrimary"
 import CSError from "../../general/CSError";
 import CSShopCard from "../../general/CSShopCard"
 import CSShopPagedheading from "../../general/CSShopPageHeading"
@@ -32,8 +30,6 @@ export default function ShopEvents() {
   /** @type {Object} */
   const context = useContext(GlobalContext)
   const dateFormat = context.appSettings.dateFormat
-  const bg = useColorModeValue('white', 'gray.800')
-  const fontColor = useColorModeValue('gray.800', 'white')
   const { t } = useTranslation()
   const [result] = useQuery({
     query: QUERY_SCHEDULE_EVENTS,
@@ -74,7 +70,7 @@ export default function ShopEvents() {
               <Link to={`/shop/events/${node.id}`}>
                 <Flex mt="1" justifyContent="space-between" alignContent="center">
                   <Box
-                    fontSize="2xl"
+                    fontSize="lg"
                     fontWeight="semibold"
                     as="h4"
                     lineHeight="tight"
@@ -100,14 +96,16 @@ export default function ShopEvents() {
               <Text mt={3}>
                 <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(node.preview) }} />
               </Text>
-              <Text mt={3}>
+              <Text mt={3} mb="64px" color="green.500" fontWeight={"bold"}>
                 {node.tickets && node.tickets.edges && node.tickets.edges[0].node.priceDisplay}
               </Text>
-              <Box mt={3} fontWeight={"bold"} >
+              <Box mt={3} pos="absolute" bottom="0" left="0" p="24px" w='full' fontWeight={"bold"} >
                 <Link to={`/shop/events/${node.id}`}>
-                  <Text color="green.500">
-                    Event details
-                  </Text>
+                  <CSButtonPrimary
+                    w={'full'}
+                    rightIcon={<FiChevronRight />}
+                    buttonText={t("shop.events.event_details")}
+                  />
                 </Link>
               </Box>
             </Box>

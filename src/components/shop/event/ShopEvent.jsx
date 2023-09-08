@@ -162,32 +162,32 @@ export default function ShopEvent() {
             </Alert>
         </GridItem>
       : ""}
-      {tickets.edges.map(({ node }) => (
-        <GridItem>
-          <ShopPricingCard
-            key={node.id}
-            title={node.name}
-            price={node.totalPriceDisplay}
-            priceUnit=""
-            buttonHref={`/shop/event_ticket/${node.id}`}
-            buttonText={t("shop.events.buy_ticket")}
-            cardItems ={
-              node.ticketScheduleItems.edges.map(({ node: activity }) => (
-                {
-                  icon: FiCalendar,
-                  text: <React.Fragment>
-                    {activity.scheduleItem.name} <br />
-                    <small>
-                      
-                      {activity.scheduleItem.dateStart} {activity.scheduleItem.timeStart} - {activity.scheduleItem.timeEnd}
-                    </small>
-                  </React.Fragment>
-                }
-              ))
-            }
-          />
-        </GridItem>
-      ))}
     </Grid>
+    <SimpleGrid spacing="3" minChildWidth="300px" columns={3}>
+      {tickets.edges.map(({ node }) => (
+        <ShopPricingCard
+          key={node.id}
+          title={node.name}
+          price={node.totalPriceDisplay}
+          priceUnit=""
+          buttonHref={`/shop/event_ticket/${node.id}`}
+          buttonText={t("shop.events.buy_ticket")}
+          cardItems ={
+            node.ticketScheduleItems.edges.map(({ node: activity }) => (
+              {
+                icon: FiCalendar,
+                text: <React.Fragment>
+                  {activity.scheduleItem.name} <br />
+                  <small>
+                    
+                    {activity.scheduleItem.dateStart} {activity.scheduleItem.timeStart} - {activity.scheduleItem.timeEnd}
+                  </small>
+                </React.Fragment>
+              }
+            ))
+          }
+        />
+      ))}
+    </SimpleGrid>
   </React.Fragment>
 }

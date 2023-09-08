@@ -42,15 +42,16 @@ export default function ShopPricingCard({title, price, priceUnit, buttonHref, bu
   return (
     <Box
       mt={6}
-      ml="auto" 
-      mr="auto"
-      maxW={{ base: '330px', md: '500px', lg: "1000px"}}
+      ml={{ base: "auto", md: 0 }}
+      mr={{ base: "auto", md: 0 }}
+      maxW={'330px'}
       height={height}
       w={'full'}
       bg={useColorModeValue('white', 'gray.800')}
       boxShadow={'2xl'}
       rounded={'md'}
-      overflow={'hidden'}>
+      overflow={'hidden'}
+    >
       <Stack
         textAlign={'center'}
         p={6}

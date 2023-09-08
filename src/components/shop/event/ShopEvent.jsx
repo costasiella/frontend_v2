@@ -135,36 +135,35 @@ export default function ShopEvent() {
           {t('general.tickets')}
         </Heading>
       </GridItem>
-      <GridItem colSpan={3}>
-        {(!CSAuth.userIsSignedin()) ? 
-          <Alert 
-            status='info'
-            variant='subtle'
-            flexDirection='column'
-            alignItems='left'
-            justifyContent='left'
-            textAlign={{base: "center", md:  "left"}}
-            roundedTop='md'
-            roundedBottom='md'
-            maxW={{ base: '330px', md: '700px', lg: "3000px"}}
-            w={'full'}
-            ml="auto"
-            mr="auto"
-          >
-            <AlertDescription>
-              <Link to="/user/login">
-                <Button rightIcon={<FiArrowRight />} colorScheme='blue'  size="sm" mr="3">
-                  {t("general.sign_in")}
-                </Button>
-              </Link> 
-              <Text as="span" color="">{t("shop.events.sign_in_to_see_discounts")}</Text>
-            </AlertDescription>
-          </Alert>
-        : ""}
-      </GridItem>
+      {(!CSAuth.userIsSignedin()) ? 
+        <GridItem colSpan={3}>
+            <Alert 
+              status='info'
+              variant='subtle'
+              flexDirection='column'
+              alignItems='left'
+              justifyContent='left'
+              textAlign={{base: "center", md:  "left"}}
+              roundedTop='md'
+              roundedBottom='md'
+              maxW={{ base: '330px', md: '700px', lg: "3000px"}}
+              w={'full'}
+              ml="auto"
+              mr="auto"
+            >
+              <AlertDescription>
+                <Link to="/user/login">
+                  <Button rightIcon={<FiArrowRight />} colorScheme='blue'  size="sm" mr="3">
+                    {t("general.sign_in")}
+                  </Button>
+                </Link> 
+                <Text as="span" color="">{t("shop.events.sign_in_to_see_discounts")}</Text>
+              </AlertDescription>
+            </Alert>
+        </GridItem>
+      : ""}
       {tickets.edges.map(({ node }) => (
-        <GridItem
-        >
+        <GridItem>
           <ShopPricingCard
             key={node.id}
             title={node.name}

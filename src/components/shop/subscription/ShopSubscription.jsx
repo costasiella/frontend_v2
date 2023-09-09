@@ -24,6 +24,7 @@ import CSSpinner from "../../general/CSSpinner";
 import ShopPricingCard from "../../general/ShopPricingCard";
 import { FiCheck } from "react-icons/fi";
 import ShopCheckoutProgress from '../ShopCheckoutProgress';
+import ShopCheckoutCardBankAccountRequired from '../../general/ShopCheckoutCardBankAccountRequired';
 import ShopSubscriptionCheckoutCardMollie from './ShopSubscriptionCheckoutCardMollie';
 
 export default function ShopSubscription() {
@@ -65,7 +66,7 @@ export default function ShopSubscription() {
       // localStorage.setItem(CSLS.SHOP_ACCOUNT_BANK_ACCOUNT_NEXT, `/shop/subscription/${id}`)
       // Show bank account requird 
       // CheckoutCard = <CheckoutCardBankAccountRequired />
-      CheckoutCard = "Bank account required"
+      CheckoutCard = <ShopCheckoutCardBankAccountRequired />
     } else {
       // Allow customer to create a subscription
       // CheckoutCard = <CheckoutCardDirectDebit accountId={account.accountId} organizationSubscription={subscription} />

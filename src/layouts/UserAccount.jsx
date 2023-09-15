@@ -10,7 +10,7 @@ import { QUERY_SHOP_GLOBAL_CONTEXT } from "./queries";
 import { GlobalContextProvider } from "../components/contexts/GlobalContext"
 
 import CSSpinner from "../components/general/CSSpinner";
-import SidebarWithHeaderShop from '../components/shop/SidebarWithHeaderShop';
+import SidebarWithHeaderAccount from '../components/user/account/SidebarWithHeaderAccount';
 
 
 export default function UserAccount() {
@@ -30,9 +30,9 @@ export default function UserAccount() {
 
   return (
     <GlobalContextProvider value={data}>
-      <SidebarWithHeaderShop>
+      <SidebarWithHeaderAccount>
         <Outlet />
-      </SidebarWithHeaderShop>
+      </SidebarWithHeaderAccount>
     </GlobalContextProvider>
   )
 } 

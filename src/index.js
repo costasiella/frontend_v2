@@ -31,6 +31,7 @@ import { TOKEN_REFRESH } from './components/user/queries';
 // Layouts
 import Shop from "./layouts/Shop"
 import User from "./layouts/User"
+import UserAccount from "./layouts/UserAccount"
 
 // Components 
 import ErrorPage from './components/error_pages/error';
@@ -41,6 +42,7 @@ import UserLogin from "./components/user/login/UserLogin";
 import UserLogout from './components/user/logout/UserLogout';
 import UserWelcome from './components/user/welcome/UserWelcome';
 
+import UserAccountHome from './components/user/account/home/UserAccountHome';
 import ShopCheckoutComplete from './components/shop/checkout/complete/ShopCheckoutComplete';
 import ShopCheckoutPayment from './components/shop/checkout/payment/ShopCheckoutPayment';
 import ShopClasspass from './components/shop/classpass/ShopClasspass';
@@ -128,6 +130,10 @@ const router = createBrowserRouter([
         element: <UserLogin />
       },
       {
+        path: "account",
+        element: <UserAccountHome />
+      },
+      {
         path: "login",
         element: <UserLogin />
       },
@@ -140,7 +146,17 @@ const router = createBrowserRouter([
         element: <UserWelcome />
       }
     ]
-  }
+  },
+  {
+    path: "/user/account",
+    element: <UserAccount />,
+    children: [
+      {
+        index: true,
+        element: <UserAccountHome />
+      },
+    ]
+  },
 ]);
 
 

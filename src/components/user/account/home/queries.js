@@ -1,6 +1,6 @@
 import { gql } from "urql";
 
-const QUERY_USER_PROFILE = gql`
+export const QUERY_USER_PROFILE = gql`
   query User {
     user {
       id
@@ -24,5 +24,3 @@ const QUERY_USER_PROFILE = gql`
     }
   }
 `
-
-export default QUERY_USER_PROFILE

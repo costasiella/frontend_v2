@@ -13,7 +13,7 @@ import CSSpinner from "../components/general/CSSpinner";
 import SidebarWithHeaderShop from '../components/shop/SidebarWithHeaderShop';
 
 
-export default function Shop() {
+export default function UserAccount() {
   const [result] = useQuery({
     query: QUERY_SHOP_GLOBAL_CONTEXT
   });

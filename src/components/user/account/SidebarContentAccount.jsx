@@ -16,7 +16,8 @@ import {
   FiCreditCard,
   FiBook,
   FiCalendar,
-  FiMessageCircle
+  FiMessageCircle,
+  FiBriefcase
 } from 'react-icons/fi';
 
 // Contexts
@@ -49,6 +50,8 @@ function getLinkItems(t, shopFeatures) {
       href: '/user/account/classes'
     })
   }
+
+  
   
   // if (shopFeatures.events) {
   //   linkItems.push({
@@ -79,6 +82,14 @@ function getLinkItems(t, shopFeatures) {
   //   icon: FiMessageCircle, 
   //   href: '/shop/contact' 
   // })
+
+  if (shopFeatures.classes) {
+    linkItems.push({
+      name: t("user.account.menu.my_bank_account"), 
+      icon: FiBriefcase, 
+      href: '/user/account/bank_account'
+    })
+  }
 
   return linkItems
 }

@@ -6,7 +6,8 @@ const cs_local_storage_keys = {
     AUTH_TOKEN_ORIGIAT: 'costasiella:authTokenorigIat',
     AUTH_REFRESH_TOKEN: 'costasiella:authRefreshToken', 
     AUTH_REFRESH_TOKEN_EXP: 'costasiella:refreshTokenExp',
-    AUTH_LOGIN_NEXT: 'costasiella:authLoginNext'
+    AUTH_LOGIN_NEXT: 'costasiella:authLoginNext',
+    USER_ACCOUNT_BANK_ACCOUNT_NEXT: 'costasiella:userAccountBankAccountNext'
 }
 
 export default cs_local_storage_keys

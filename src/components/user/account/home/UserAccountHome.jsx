@@ -38,7 +38,10 @@ export default function UserAccountHome() {
 
     return (
       <SimpleGrid spacing="4" minChildWidth="250px">
-        Hello world!
+        A quick overview of important things here. <br />
+        - Upcoming classes <br />
+        - Upcoming events <br />
+        - Active subscriptions & passes (with links to the shop to buy more) <br />
         
         {/* {announcements.edges.length && announcements.edges.map(({ node }) => (
           <Card key={node.id}>

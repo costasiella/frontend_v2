@@ -39,6 +39,9 @@ export const QUERY_ACCOUNT_BANK_ACCOUNTS = gql`
       phone
       mobile
       emergency
+      instructor
+      employee
+      profilePolicy
     }
   }
 `

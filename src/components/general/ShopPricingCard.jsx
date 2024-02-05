@@ -44,7 +44,7 @@ export default function ShopPricingCard({title, price, priceUnit, buttonHref, bu
       mt={6}
       ml={{ base: "auto", md: 0 }}
       mr={{ base: "auto", md: 0 }}
-      maxW={'330px'}
+      maxW={{ base: '330px', md: '500px', lg: '2000px' }}
       height={height}
       w={'full'}
       bg={useColorModeValue('white', 'gray.800')}

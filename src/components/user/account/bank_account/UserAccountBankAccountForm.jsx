@@ -63,7 +63,7 @@ export default function UserAccountBankAccountForm({initialValues, id}) {
   return (
     <Box width="100%" p="6">
       <form onSubmit={formik.handleSubmit}>
-        <Stack spacing={4} direction={['row', 'column']}>
+        <Stack spacing={4}>
           <FormControl id="holder">
             <FormLabel htmlFor="holder">{t("relations.account.bank_accounts.holder")}</FormLabel>
             <Input 
@@ -75,6 +75,7 @@ export default function UserAccountBankAccountForm({initialValues, id}) {
             />
           </FormControl>
           <Stack spacing={4} direction={{base: "column", lg: "row"}}>
+          {/* <Stack spacing={4}> */}
             <FormControl id="number">
               <FormLabel htmlFor="number">{t("relations.account.bank_accounts.number")}</FormLabel>
               <Input 

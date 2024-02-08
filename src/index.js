@@ -38,11 +38,16 @@ import ErrorPage from './components/error_pages/error';
 // import ErrorPage from "./components/error_pages/error";
 import Home from './components/home/Home';
 
+// Authentication
 import UserLogin from "./components/user/login/UserLogin";
 import UserLogout from './components/user/logout/UserLogout';
 import UserWelcome from './components/user/welcome/UserWelcome';
 
+// User profile
 import UserAccountHome from './components/user/account/home/UserAccountHome';
+import UserAccountBankAccount from './components/user/account/bank_account/UserAccountBankAccount';
+
+// Shop
 import ShopCheckoutComplete from './components/shop/checkout/complete/ShopCheckoutComplete';
 import ShopCheckoutPayment from './components/shop/checkout/payment/ShopCheckoutPayment';
 import ShopClasspass from './components/shop/classpass/ShopClasspass';
@@ -155,6 +160,10 @@ const router = createBrowserRouter([
         index: true,
         element: <UserAccountHome />
       },
+      {
+        path: "bank_account",
+        element: <UserAccountBankAccount />
+      }
     ]
   },
 ]);

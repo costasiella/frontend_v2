@@ -46,11 +46,12 @@ import {
       },
       onSubmit: (values, { setSubmitting }) => {
         // alert(JSON.stringify(values, null, 2))
+        const variables = {
+          username: values.username,
+          password: values.password
+        }
         
-        doTokenAuth({
-            username: values.username,
-            password: values.password
-        }).then(result => {
+        doTokenAuth(variables).then(result => {
           console.log(result)
           if (result.error) {
             console.error(result.error)

@@ -1,6 +1,16 @@
 import { gql } from "urql";
 
 
+export const QUERY_ACCOUNT_ID = gql`
+query AccountId {
+  user {
+    id
+    accountId
+  }
+}
+`
+
+
 export const QUERY_ACCOUNT_BANK_ACCOUNTS = gql`
   query AccountBankAccounts($before: String, $after: String, $account: ID!) {
     accountBankAccounts(first: 1, before: $before, after: $after, account: $account) {
